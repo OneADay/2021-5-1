@@ -84,16 +84,14 @@ export default class P5Renderer implements BaseRenderer{
                 let ry = radiusY + Math.sin(frameDelta) * ((j % 4) * 20);
                 let rx = radiusX + Math.sin(frameDelta * 4) * ((j % 4) * 20);
                 //let ry = radiusY + Math.sin(frameDelta * 2) * ((j % 4) * 20);
-                let x = centerX + Math.sin(angle) * rx;
-                let y = centerY + Math.cos(angle) * ry;
+                //let x = centerX + Math.sin(angle) * rx;
+                //let y = centerY + Math.cos(angle) * ry;
 
-                //let x = centerX + Math.sin(angle + frameDelta) * 100; //rotate circles
-                //let y = centerY + Math.cos(angle + frameDelta) * 100;
+                let x = centerX + Math.sin(angle + frameDelta) * rx; //rotate circles
+                let y = centerY + Math.cos(angle + frameDelta) * 100;
 
                 s.circle(x, y, 3);
-                //let hue = ((j / numpoints) * 360) % 360;
                 //let hue = (((frameDelta + j) / numpoints) * 360) % 360;
-
                 let hue = ((frameDelta + angle) / Math.PI) * 360 % 360; //color rotates
                 s.fill(hue, 255, 255, 255);
                 s.stroke(hue, 255, 255, 255);
